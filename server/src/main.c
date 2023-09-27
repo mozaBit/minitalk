@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:40:49 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/25 12:02:26 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/27 11:25:55 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 int	main(void)
 {
+	printf("PID: %d\n", getpid());
 	while (true)
 	{
-		printf("PID: %d\n", getpid());
 		signal_catcher();
 		sleep(3);
 	}
