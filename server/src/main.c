@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:40:49 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/27 11:25:55 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:23:17 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 	while (true)
 	{
 		signal_catcher();
-		sleep(3);
+		usleep(3);
 	}
 	return (0);
 }
