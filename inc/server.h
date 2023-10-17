@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:39:08 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/17 11:05:05 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:51:26 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_isdigit(char c);
  * Signal sending
 */
 void	config_csig(void);
-void	csignal_handler(int sig, siginfo_t *info, void *ucontext);
+void	csignal_handler(int sig);
 void	send_message(int server_pid, char *message, int message_length);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:05:25 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/17 11:03:47 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:54:52 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,20 @@ void	send_message(int server_pid, char *message, int message_length)
 	}
 }
 
-// void	config_csig(void)
-// {
-// 	struct sigaction si_act;
+void	config_csig(void)
+{
+	struct sigaction si_act;
 
-// 	si_act.sa_flags = SA_SIGINFO;
-// 	si_act.sa_sigaction = &csignal_handler;
-// }
+	si_act.sa_flags = SA_SIGINFO;
+	si_act.sa_handler = &csignal_handler;
+	if (sigaction(SIGUSR1, &si_act, NULL) == -1)
+		ft_putstr("there is an error\n");
+	if (sigaction(SIGUSR2, &si_act, NULL) == -1)
+		ft_putstr("there is an error\n");
+}
 
-// void	csignal_handler(int sig, siginfo_t *info, void *ucontext)
-// {
-
-// }
+void	csignal_handler(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_putstr("sent signal\n");
+}
