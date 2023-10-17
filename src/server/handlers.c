@@ -6,33 +6,38 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 11:42:48 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/16 20:17:41 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:04:19 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/server.h"
-#include <signal.h>
-#include <stdio.h>
-#include <strings.h>
+#include "../../inc/server.h"
 
-
-
-void	catch_sig(int signal)
+void	signal_handler(int sig, siginfo_t *info, void *ucontext)
 {
-	if (signal == SIGINT)
-		write(1, "SIGUSR1 received\n", 18);
-	if (signal == SIGQUIT)
-		write(1, "SIGUSR2 received\n", 18);
+	static int				i;
+	static unsigned char	c;
+
+	(void) ucontext;
+	i = 7;
+	if (sig == SIGUSR1)
+		c = c | (1 << 7);
+	i--;
+	if (i < 0)
+	{
+		ft_putchar(c);
+		c = 0;
+		i = 7;
+	}
+	kill(SIGUSR1, info->si_pid);
 }
 
-void	signal_catcher(void)
-{
-	struct sigaction	act;
+void	signal_configurator(){
+	struct sigaction sa_act;
 
-	bzero(&act, sizeof(act));
-
-	act.sa_handler = &catch_sig;
-
-	sigaction(SIGINT, &act, NULL);
-	sigaction(SIGQUIT, &act, NULL);
+	sa_act.sa_flags = SA_SIGINFO;
+	sa_act.sa_sigaction = &signal_handler;
+	if (sigaction(SIGUSR1, &sa_act, NULL) == -1)
+		write(1, "d", 1);
+	if (sigaction(SIGQUIT, &sa_act, NULL) == -1)
+		write(1, "d", 1);
 }

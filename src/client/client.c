@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 07:39:08 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/16 17:21:46 by bmetehri         ###   ########.fr       */
+/*   Created: 2023/09/25 07:40:49 by bmetehri          #+#    #+#             */
+/*   Updated: 2023/10/17 11:03:36 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
+#include "../../inc/server.h"
 
-# include <unistd.h>
-# include <stdbool.h>
-# include <signal.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <strings.h>
+int	main(int ac, char **av)
+{
+	int	server_pid;
 
-/*
- * handlers
-*/
-void	signal_catcher(void);
-
-#endif
+	if (args_checker(ac, av))
+		return (1);
+	server_pid = ft_atoi(av[1]);
+	// config_csig();
+	send_message(server_pid, av[2], ft_strlen(av[2]));
+	while (1)
+		pause();
+	return (0);
+}

@@ -6,53 +6,45 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:05:25 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/27 17:23:54 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:03:47 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/client.h"
+#include "../../inc/server.h"
 
-void	send_byte(char c, int pid){
-	int		index;
-	int		*tab;
+void	send_message(int server_pid, char *message, int message_length)
+{
+	int				i;
+	unsigned char	c;
 
-	index = 8;
-	tab = malloc(sizeof(int) * index);
-	while (--index >= 0)
+	i = message_length;
+	i = 0;
+	while (*message)
 	{
-		tab[index] = c % 2;
-		c >>= 1;
-		if (tab[index] != 0)
+		c = *message;
+		i = 8;
+		while (i--)
 		{
-			if (kill(pid, SIGUSR1) == 0)
-				printf("Signal Sent Successfully\n");
+			if (c & 0b10000000)
+				kill(server_pid, SIGUSR1);
 			else
-				printf("siganl failed to send\n");
+				kill(server_pid, SIGUSR2);
+			c <<= 1;
+			usleep(250);
 		}
-		else
-		{
-			if (kill(pid, SIGUSR2) == 0)
-				printf("Signal Sent Successfully\n");
-			else
-				printf("siganl failed to send\n");
-		}
+		message++;
 	}
 }
 
-void	send_space(int	pid)
-{
-	kill(pid, SIGUSR1);
-	kill(pid, SIGUSR2);
-}
+// void	config_csig(void)
+// {
+// 	struct sigaction si_act;
 
-void	send_all(char **tab, int pid)
-{
-	char	*str;
+// 	si_act.sa_flags = SA_SIGINFO;
+// 	si_act.sa_sigaction = &csignal_handler;
+// }
 
-	str = *tab;
-	while (*str)
-	{
-		send_byte(*str, pid);
-		str++;
-	}
-}
+// void	csignal_handler(int sig, siginfo_t *info, void *ucontext)
+// {
+
+// }

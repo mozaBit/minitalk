@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:40:49 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/16 17:21:57 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:05:58 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/server.h"
+#include "../../inc/server.h"
 #include <signal.h>
 
 /*
@@ -23,10 +23,9 @@
 int	main(void)
 {
 
-	printf("PID: %d\n", getpid());
-	signal_catcher();
+	ft_printf("PID: %d\n", getpid());
 	while (true)
-		continue ;
+		signal_configurator() ;
 	return (0);
 }
 
