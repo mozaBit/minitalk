@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:33:45 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/17 11:06:01 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:17:01 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	error_handler(char *str)
 	return (1);
 }
 
-int		ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

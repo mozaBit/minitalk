@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:14:35 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/17 13:43:40 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:18:57 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,41 +57,9 @@ int	args_checker(int ac, char **av)
 	if (ac != 3)
 		return (error_handler("Incompatible inupt !\n"));
 	while (av[1][idx])
+	{
 		if (!ft_isdigit(av[1][idx++]))
 			return (error_handler("Incopatible Pid\n"));
-	return (0);
-}
-
-int	error_handler(char *str)
-{
-	ft_putstr(str);
-	return (1);
-}
-
-size_t	ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-size_t	ft_putstr(char *str)
-{
-	size_t	size;
-
-	size = ft_strlen(str);
-	if (!str)
-		return (ft_putstr("(null)"));
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
 	}
-	return (size);
-}
-
-int		ft_isdigit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
 	return (0);
 }

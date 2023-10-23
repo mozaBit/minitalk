@@ -6,12 +6,12 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:39:08 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/17 13:51:26 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:15:07 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERVER_H
-#define  SERVER_H
+# define SERVER_H
 
 # include <unistd.h>
 # include <stdbool.h>
@@ -40,7 +40,7 @@ size_t	ft_print_void_p(void *pointer);
  * handlers
 */
 void	signal_handler(int sig, siginfo_t *info, void *ucontext);
-void	signal_configurator();
+void	signal_configurator(void);
 
 /*
  * Utils Functions

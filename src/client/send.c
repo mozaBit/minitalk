@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:05:25 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/17 13:54:52 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:19:41 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	send_message(int server_pid, char *message, int message_length)
 	unsigned char	c;
 
 	i = message_length;
-	i = 0;
 	while (*message)
 	{
 		c = *message;
@@ -38,7 +37,7 @@ void	send_message(int server_pid, char *message, int message_length)
 
 void	config_csig(void)
 {
-	struct sigaction si_act;
+	struct sigaction	si_act;
 
 	si_act.sa_flags = SA_SIGINFO;
 	si_act.sa_handler = &csignal_handler;
