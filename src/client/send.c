@@ -6,18 +6,17 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:05:25 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/23 14:40:22 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:02:52 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/server.h"
 
-void	send_message(int server_pid, char *message, int message_length)
+void	send_message(int server_pid, char *message)
 {
 	int				i;
 	unsigned char	c;
 
-	i = message_length;
 	while (*message)
 	{
 		c = *message;
@@ -49,6 +48,6 @@ void	config_csig(void)
 
 void	csignal_handler(int sig)
 {
-	if (sig == SIGUSR2)
+	if (sig == SIGUSR1)
 		ft_putstr("Received Signal!\n");
 }
