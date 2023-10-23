@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:40:49 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/23 14:38:07 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 18:01:40 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,3 @@ int	main(void)
 		signal_configurator();
 	return (0);
 }
-
-/*
- 1- Get & Print the PID >>> Done
- 2- Send a Signal from CLient to Server and well receive it and Print it
-*/
