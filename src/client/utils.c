@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:14:35 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/23 10:18:57 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:39:31 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int	args_checker(int ac, char **av)
 
 	idx = 0;
 	if (ac != 3)
-		return (error_handler("Incompatible inupt !\n"));
+		return (error_handler("Error: Invalid inupt!\n"));
 	while (av[1][idx])
 	{
 		if (!ft_isdigit(av[1][idx++]))
-			return (error_handler("Incopatible Pid\n"));
+			return (error_handler("Error: Invalid Pid!\n"));
 	}
 	return (0);
 }

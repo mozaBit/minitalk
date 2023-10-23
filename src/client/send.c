@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:05:25 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/23 10:19:41 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:40:22 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	config_csig(void)
 
 void	csignal_handler(int sig)
 {
-	if (sig == SIGUSR1)
-		ft_putstr("sent signal\n");
+	if (sig == SIGUSR2)
+		ft_putstr("Received Signal!\n");
 }

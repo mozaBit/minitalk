@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 07:40:49 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/10/23 10:17:24 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:38:07 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 int	main(void)
 {
-	ft_printf("PID: %d\n", getpid());
+	ft_printf("Server PID: %d\n", getpid());
 	while (true)
 		signal_configurator();
 	return (0);
